@@ -247,7 +247,9 @@ INSTALLED_APPS = (
     "mezzanine.forms",
     "mezzanine.galleries",
     "mezzanine.twitter",
-    # "mezzanine.accounts",
+    "user_profile",
+    "mezzanine.accounts",
+    'phonenumber_field',
     # "mezzanine.mobile",
 )
 
@@ -334,3 +336,5 @@ except ImportError:
     pass
 else:
     set_dynamic_settings(globals())
+
+ACCOUNTS_PROFILE_MODEL = "user_profile.Profile"
