@@ -10,7 +10,7 @@ ORDER_TYPES = (
 )
 # Create your models here.
 class Order(models.Model):
-    user = models.ForeignKey(User, unique=True)
+    user = models.ForeignKey(User)
     time_stamp = models.CharField(max_length=32)
     order_type = models.CharField(max_length=2, choices=ORDER_TYPES, default='B')
     quantity = models.IntegerField()
