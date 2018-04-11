@@ -250,6 +250,7 @@ INSTALLED_APPS = (
     "user_profile",
     "mezzanine.accounts",
     'phonenumber_field',
+    'orders',
     # "mezzanine.mobile",
 )
 
