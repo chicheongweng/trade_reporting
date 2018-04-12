@@ -114,13 +114,13 @@ USE_TZ = True
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "zh-hans"
+LANGUAGE_CODE = "zh-hant"
 
 # Supported languages
 LANGUAGES = (
     ('en', _('English')),
     ('zh-hans', _('Simplified Chinese')),
-    ('zh-hant', _('Traditional Chinese'))
+    ('zh-hant', _('Traditional Chinese')),
 )
 
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
@@ -135,7 +135,7 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = False
+USE_I18N = True
 
 AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
 
@@ -270,7 +270,7 @@ MIDDLEWARE_CLASSES = (
 
     'django.contrib.sessions.middleware.SessionMiddleware',
     # Uncomment if using internationalisation or localisation
-    'django.middleware.locale.LocaleMiddleware',
+    #'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
