@@ -238,6 +238,7 @@ if DJANGO_VERSION < (1, 9):
 ################
 
 INSTALLED_APPS = (
+    "modeltranslation",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -258,6 +259,7 @@ INSTALLED_APPS = (
     "user_profile",
     "mezzanine.accounts",
     'phonenumber_field',
+    'books',
     'orders',
     # "mezzanine.mobile",
 )
