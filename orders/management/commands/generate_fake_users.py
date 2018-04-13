@@ -9,18 +9,29 @@ from django.contrib.auth.models import User
 from datetime import datetime,timedelta
 from random import randint
 from django.contrib.auth.hashers import make_password
+from user_profile.models import Profile
 
-fake_en = Faker('en_US')
 fake=Faker('en_US')
 
 end=datetime.now()
 start=end-timedelta(days=365*3)
 
-def random_username():
-    return fake_en.first_name()+fake_en.last_name()+str(randint(0,999))
+def random_lorem(loc='en_US'):
+    return Faker(loc).sentence()
+
+def random_dob():
+    start=end-timedelta(days=365*50)
+    return start+(end-start)*random.random()
+
+def random_username(first_name, last_name):
+    fake = Faker('en_US')
+    return first_name.lower() + last_name.lower() + str(randint(0,999))
 
 def random_date():
     return start+(end-start)*random.random()
+
+def random_phone(loc='zh'):
+    return '+'+Faker(loc).phone_number()
 
 class Command(BaseCommand):
 
@@ -28,10 +39,10 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         for i in range(100):
-            id = str(uuid.uuid4())
+
             first_name = fake.first_name()
             last_name = fake.last_name()
-            username = random_username().lower()
+            username = random_username(first_name, last_name)
 
             new_user = User.objects.create(
                 first_name=first_name,
@@ -40,6 +51,11 @@ class Command(BaseCommand):
                 email=username+"@gmail.com",
                 password=make_password("Abcde12345")
             )
-
             new_user.save()
             self.stdout.write("user.id %i" % new_user.id)
+
+            p = Profile.objects.get(user=new_user)
+            #p.date_of_birth = random_dob()
+            p.bio = random_lorem()
+            p.phone_number = random_phone()
+            p.save()
