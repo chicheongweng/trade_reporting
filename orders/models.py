@@ -11,7 +11,7 @@ ORDER_TYPES = (
 # Create your models here.
 class Order(models.Model):
     user = models.ForeignKey(User)
-    time_stamp = models.CharField(max_length=32)
+    time_stamp = models.DateField("Time Stamp")
     order_type = models.CharField(max_length=2, choices=ORDER_TYPES, default='B')
     quantity = models.IntegerField()
     price = models.FloatField()
