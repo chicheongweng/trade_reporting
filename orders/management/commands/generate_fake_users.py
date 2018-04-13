@@ -53,7 +53,7 @@ class Command(BaseCommand):
             self.stdout.write("user.id %i" % new_user.id)
 
             p = Profile.objects.get(user=new_user)
-            #p.date_of_birth = random_dob()
+            p.date_of_birth = random_dob()
             p.bio = random_lorem()
             p.phone_number = random_phone()
             p.save()
