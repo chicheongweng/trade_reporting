@@ -261,6 +261,7 @@ INSTALLED_APPS = (
     'phonenumber_field',
     'books',
     'orders',
+    'django_faker',
     # "mezzanine.mobile",
 )
 
@@ -349,3 +350,5 @@ else:
     set_dynamic_settings(globals())
 
 ACCOUNTS_PROFILE_MODEL = "user_profile.Profile"
+FAKER_LOCALE = None     # settings.LANGUAGE_CODE is loaded
+FAKER_PROVIDERS = None  # faker.DEFAULT_PROVIDERS is loaded (all)
