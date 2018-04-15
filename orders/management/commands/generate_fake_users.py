@@ -26,7 +26,7 @@ def random_dob():
 
 def random_username(first_name, last_name):
     fake = Faker('en_US')
-    return first_name.lower() + last_name.lower() + str(randint(0,999))
+    return first_name.lower() + last_name.lower() + str(randint(0,999999))
 
 def random_phone(loc='zh'):
     return '+'+Faker(loc).phone_number()
@@ -36,7 +36,7 @@ class Command(BaseCommand):
     help = 'generate 10K Jobseeker profiles for Addis Ababa'
 
     def handle(self, *args, **options):
-        for i in range(5):
+        for i in range(25000):
 
             first_name = random_first_name()
             last_name = random_last_name()
@@ -50,7 +50,8 @@ class Command(BaseCommand):
                 password=make_password("Abcde12345")
             )
             new_user.save()
-            self.stdout.write("user.id %i" % new_user.id)
+            if new_user.id % 500 == 0:
+                self.stdout.write("user.id %i" % new_user.id)
 
             p = Profile.objects.get(user=new_user)
             p.date_of_birth = random_dob()

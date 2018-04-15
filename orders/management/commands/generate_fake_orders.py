@@ -14,8 +14,8 @@ from orders.models import Order
 from django.utils import timezone
 
 RATIO_OF_USERS_PLACEING_ORDERS = 0.5
-TOTAL_USERS_PLACING_ORDERS = User.objects.count()
-TOTAL_ORDERS_PER_USER = 5
+TOTAL_USERS_PLACING_ORDERS = User.objects.count()*RATIO_OF_USERS_PLACEING_ORDERS
+TOTAL_ORDERS_PER_USER = 100
 ORDER_QUANTITY_STD = 10
 SYMBOLS = ['GLD', 'SLV', 'EURUSD', 'RMBUSD', 'OIL']
 SYMBOLS = ['GLD']
