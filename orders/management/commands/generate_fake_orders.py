@@ -30,11 +30,11 @@ def get_random_order_type():
 
 def get_price(symbol):
     return {
-        'GLD': random.normalvariate(1400,10),
-        'SLV': random.normalvariate(15,3),
-        'EURUSD': random.normalvariate(1.2,0.1),
-        'RMBUSD': random.normalvariate(0.16, 0.1),
-        'OIL': random.normalvariate(60,3),
+        'GLD': round(random.normalvariate(1400,10),2),
+        'SLV': round(random.normalvariate(15,3),2),
+        'EURUSD': round(random.normalvariate(1.2,0.1),2),
+        'RMBUSD': round(random.normalvariate(0.16, 0.1),2),
+        'OIL': round(random.normalvariate(60,3),2),
     }[symbol]
 
 def get_random_user():
