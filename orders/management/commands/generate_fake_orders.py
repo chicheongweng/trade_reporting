@@ -15,10 +15,9 @@ from django.utils import timezone
 
 RATIO_OF_USERS_PLACEING_ORDERS = 0.5
 TOTAL_USERS_PLACING_ORDERS = int(User.objects.count()*RATIO_OF_USERS_PLACEING_ORDERS)
-TOTAL_ORDERS_PER_USER = 100
+TOTAL_ORDERS_PER_USER = 20
 ORDER_QUANTITY_STD = 10
 SYMBOLS = ['GLD', 'SLV', 'EURUSD', 'RMBUSD', 'OIL']
-SYMBOLS = ['GLD']
 
 def get_random_time_stamp(years=3):
     return str(timezone.now()-timedelta(days=365*randint(0,years)))
@@ -33,8 +32,8 @@ def get_price(symbol):
     return {
         'GLD': round(random.normalvariate(1400,10),2),
         'SLV': round(random.normalvariate(15,3),2),
-        'EURUSD': round(random.normalvariate(1.2,0.1),2),
-        'RMBUSD': round(random.normalvariate(0.16, 0.1),2),
+        'EURUSD': round(random.normalvariate(1.2,0.1),4),
+        'RMBUSD': round(random.normalvariate(0.16, 0.05),4),
         'OIL': round(random.normalvariate(60,3),2),
     }[symbol]
 
@@ -73,6 +72,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         #self.stdout.write("TOTAL_USERS %i" % TOTAL_USERS)
         for _ in range(0, TOTAL_USERS_PLACING_ORDERS):
+            if _ % 500 == 0:
+                print "user counts = ", _
             for symbol in SYMBOLS:
                 #self.stdout.write("SYMBOL %s" % symbol)
                 orders_list = get_random_order_list(symbol)
