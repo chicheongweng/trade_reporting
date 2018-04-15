@@ -13,11 +13,12 @@ from user_profile.models import Profile
 from orders.models import Order
 from django.utils import timezone
 
-RATIO_OF_USERS = 0.75
-TOTAL_USERS = int(User.objects.count()*0.75)
-TOTAL_ORDERS_PER_USER = 100
-ORDER_QUANTITY_STD = 100
+RATIO_OF_USERS_PLACEING_ORDERS = 0.5
+TOTAL_USERS_PLACING_ORDERS = User.objects.count()
+TOTAL_ORDERS_PER_USER = 5
+ORDER_QUANTITY_STD = 10
 SYMBOLS = ['GLD', 'SLV', 'EURUSD', 'RMBUSD', 'OIL']
+SYMBOLS = ['GLD']
 
 def get_random_time_stamp(years=3):
     return str(timezone.now()-timedelta(days=365*randint(0,years)))
@@ -43,15 +44,22 @@ def get_random_user():
     random_user = User.objects.get(pk = random_index)
     return random_user
 
-def get_random_order_list(symbol, num_of_orders=1000):
-    quantity_list = [int(random.normalvariate(0,ORDER_QUANTITY_STD)) for x in range(0,1000)]
+def get_random_order_list(symbol):
+    quantity_list = [int(random.normalvariate(0,ORDER_QUANTITY_STD))
+        for x in range(0,TOTAL_ORDERS_PER_USER)]
+    for x in quantity_list:
+        if x == 0:
+            quantity_list.remove(x)
+    s = sum(quantity_list)
+    if s != 0:
+        quantity_list.append(-s)
 
     order_list = [
         {
             "symbol": symbol,
             "time_stamp": get_random_time_stamp(),
             "order_type": 'B' if x>0 else 'S',
-            "quantity": x,
+            "quantity": abs(x),
             "price": get_price(symbol)
         }
         for x in quantity_list
@@ -63,19 +71,21 @@ class Command(BaseCommand):
     help = 'generate ' + str(TOTAL_ORDERS_PER_USER) + 'orders'
 
     def handle(self, *args, **options):
-        self.stdout.write("TOTAL_USERS %i" % TOTAL_USERS)
-        for _ in range(0, TOTAL_USERS):
+        #self.stdout.write("TOTAL_USERS %i" % TOTAL_USERS)
+        for _ in range(0, TOTAL_USERS_PLACING_ORDERS):
             for symbol in SYMBOLS:
-                self.stdout.write("SYMBOL %s" % symbol)
+                #self.stdout.write("SYMBOL %s" % symbol)
                 orders_list = get_random_order_list(symbol)
+                # print orders_list
+                random_user = get_random_user()
                 for order in orders_list:
-                    print order
+                    #print order
                     new_order = Order.objects.create(
-                        user=get_random_user(),
+                        user=random_user,
                         symbol=order["symbol"],
                         time_stamp=order["time_stamp"],
                         order_type=order["order_type"],
-                        quantity=abs(order["quantity"]),
+                        quantity=order["quantity"],
                         price=order["price"]
                     )
                     new_order.save()
