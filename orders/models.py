@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 ORDER_TYPES = (
     ('B', 'BUY'),
     ('S', 'SELL'),
-    ('SS', 'SELL_SHORT')
+#   ('SS', 'SELL_SHORT')
 )
 # Create your models here.
 class Order(models.Model):
@@ -15,4 +15,5 @@ class Order(models.Model):
     order_type = models.CharField(max_length=2, choices=ORDER_TYPES, default='B')
     quantity = models.IntegerField()
     price = models.FloatField()
+    symbol = models.CharField(max_length=32, default="GLD")
 

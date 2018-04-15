@@ -10,45 +10,74 @@ from datetime import datetime,timedelta
 from random import randint
 from django.contrib.auth.hashers import make_password
 from user_profile.models import Profile
+from orders.models import Order
+from django.utils import timezone
 
-TOTAL_ORDERS = 1000
+RATIO_OF_USERS = 0.75
+TOTAL_USERS = int(User.objects.count()*0.75)
+TOTAL_ORDERS_PER_USER = 100
+ORDER_QUANTITY_STD = 100
+SYMBOLS = ['GLD', 'SLV', 'EURUSD', 'RMBUSD', 'OIL']
 
-def random_date(min=20,max=50):
-    return str(datetime.now()-timedelta(days=365*randint(min,max))).split(' ')[0]
+def get_random_time_stamp(years=3):
+    return str(timezone.now()-timedelta(days=365*randint(0,years)))
 
-def random_order_type():
-    return random.sample(['GLD','SLV','USDEUR','USDRMB','OIL'],1)
+def get_random_date(min=20,max=50):
+    return str(timezone.now()-timedelta(days=365*randint(min,max))).split(' ')[0]
 
-def random_time_stamp(years=3):
-    return str(datetime.now()-timedelta(days=365*randint(0,years)))
+def get_random_order_type():
+    return random.sample(SYMBOLS,1)
+
+def get_price(symbol):
+    return {
+        'GLD': random.normalvariate(1400,10),
+        'SLV': random.normalvariate(15,3),
+        'EURUSD': random.normalvariate(1.2,0.1),
+        'RMBUSD': random.normalvariate(0.16, 0.1),
+        'OIL': random.normalvariate(60,3),
+    }[symbol]
+
+def get_random_user():
+    number_of_users = User.objects.count() - 1
+    random_index = int(random.random()*number_of_users)+1
+    random_user = User.objects.get(pk = random_index)
+    return random_user
+
+def get_random_order_list(symbol, num_of_orders=1000):
+    quantity_list = [int(random.normalvariate(0,ORDER_QUANTITY_STD)) for x in range(0,1000)]
+
+    order_list = [
+        {
+            "symbol": symbol,
+            "time_stamp": get_random_time_stamp(),
+            "order_type": 'B' if x>0 else 'S',
+            "quantity": x,
+            "price": get_price(symbol)
+        }
+        for x in quantity_list
+    ]
+    return order_list
 
 class Command(BaseCommand):
 
-    help = 'generate ' + TOTAL_ORDERS + 'orders'
+    help = 'generate ' + str(TOTAL_ORDERS_PER_USER) + 'orders'
 
     def handle(self, *args, **options):
-        for i in range(TOTAL_ORDERS):
+        self.stdout.write("TOTAL_USERS %i" % TOTAL_USERS)
+        for _ in range(0, TOTAL_USERS):
+            for symbol in SYMBOLS:
+                self.stdout.write("SYMBOL %s" % symbol)
+                orders_list = get_random_order_list(symbol)
+                for order in orders_list:
+                    print order
+                    new_order = Order.objects.create(
+                        user=get_random_user(),
+                        symbol=order["symbol"],
+                        time_stamp=order["time_stamp"],
+                        order_type=order["order_type"],
+                        quantity=abs(order["quantity"]),
+                        price=order["price"]
+                    )
+                    new_order.save()
 
-            first_name = random_first_name()
-            last_name = random_last_name()
-            username = random_username(first_name, last_name)
 
-            number_of_records = models.Painting.objects.count()
-            random_index = int(random.random()*number_of_records)+1
-            random_paint = models.Painting.get(pk = random_index)
-
-            new_user = User.objects.create(
-                first_name=first_name,
-                last_name=last_name,
-                username=username,
-                email=username+"@gmail.com",
-                password=make_password("Abcde12345")
-            )
-            new_user.save()
-            self.stdout.write("user.id %i" % new_user.id)
-
-            p = Profile.objects.get(user=new_user)
-            p.date_of_birth = random_dob()
-            p.bio = random_lorem()
-            p.phone_number = random_phone()
-            p.save()
