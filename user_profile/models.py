@@ -11,4 +11,4 @@ class Profile(models.Model):
     bio = models.TextField()
     phone_number = PhoneNumberField()
     fax_number = PhoneNumberField(blank=True)
-    operation_center = models.ForeignKey(OperationCenter, null=True, default=None)
+    operation_center = models.ForeignKey(OperationCenter, blank=True, null=True, default=None)
