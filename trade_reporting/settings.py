@@ -256,11 +256,12 @@ INSTALLED_APPS = (
     "mezzanine.forms",
     "mezzanine.galleries",
     "mezzanine.twitter",
+    "operation_centers",
     "user_profile",
     "mezzanine.accounts",
-    'phonenumber_field',
-    'books',
-    'orders',
+    "phonenumber_field",
+    "profits",
+    "orders",
     # "mezzanine.mobile",
 )
 
@@ -349,3 +350,5 @@ else:
     set_dynamic_settings(globals())
 
 ACCOUNTS_PROFILE_MODEL = "user_profile.Profile"
+
+SYMBOLS = ['GLD', 'SLV', 'EURUSD', 'RMBUSD', 'OIL']
