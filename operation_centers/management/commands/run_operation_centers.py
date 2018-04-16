@@ -16,6 +16,7 @@ from profits.models import Profit
 from orders.models import Order
 from django.conf import settings
 from operation_centers.models import OperationCenter
+from profits.models import Profit
 
 OPERATION_CENTERS_ID = settings.OPERATION_CENTERS_ID
 RATIO_OF_USERS_PLACEING_ORDERS = 0.1
@@ -42,4 +43,11 @@ class Command(BaseCommand):
             profile.operation_center = oc
             profile.save()
 
-
+        for id in OPERATION_CENTERS_ID:
+            net = 0.0
+            profits = Profit.objects.filter(user__profile__operation_center__id=id, symbol='TOTAL')
+            for profit in profits:
+                net = net + profit.net
+            oc = OperationCenter.objects.get(id=id)
+            oc.net = net
+            oc.save()
