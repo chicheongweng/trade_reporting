@@ -352,3 +352,5 @@ else:
 ACCOUNTS_PROFILE_MODEL = "user_profile.Profile"
 
 SYMBOLS = ['GLD', 'SLV', 'EURUSD', 'RMBUSD', 'OIL']
+
+OPERATION_CENTERS_ID = [1, 2, 3, 4, 5]
