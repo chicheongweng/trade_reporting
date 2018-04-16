@@ -5,4 +5,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class OperationCenter(models.Model):
-    name = models.CharField(max_length=64)    
+    name = models.CharField(max_length=64)
+
+    def __unicode__(self):
+        return '%s' % (self.name)
