@@ -5,5 +5,6 @@ from orders.models import Order
 
 class OrderAdmin(admin.ModelAdmin):
     list_display = ['id', 'user', 'time_stamp', 'symbol', 'order_type', 'quantity', 'price']
-
+    search_fields = ['user__username', 'symbol']
+    list_filter = ['time_stamp']
 admin.site.register(Order, OrderAdmin)
