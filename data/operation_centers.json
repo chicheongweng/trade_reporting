@@ -1,1 +1,79 @@
-[{"model": "operation_centers.operationcenter", "pk": 1, "fields": {"name": "Shanghai", "name_en": "Shanghai", "name_zh_hans": "\u4e0a\u6d77", "name_zh_hant": "\u4e0a\u6d77", "profit": 828.3684999999992}}, {"model": "operation_centers.operationcenter", "pk": 2, "fields": {"name": "Beijing", "name_en": "Beijing", "name_zh_hans": "\u5317\u4eac", "name_zh_hant": "\u5317\u4eac", "profit": -542.1405999999998}}, {"model": "operation_centers.operationcenter", "pk": 3, "fields": {"name": "Guangzhou", "name_en": "Guangzhou", "name_zh_hans": "\u5e7f\u5dde", "name_zh_hant": "\u5ee3\u5dde", "profit": 1337.3669000000093}}, {"model": "operation_centers.operationcenter", "pk": 4, "fields": {"name": "Hong Kong", "name_en": "Hong Kong", "name_zh_hans": "\u9999\u6e2f", "name_zh_hant": "\u9999\u6e2f", "profit": 140.2750000000014}}, {"model": "operation_centers.operationcenter", "pk": 5, "fields": {"name": "Macau", "name_en": "Macau", "name_zh_hans": "\u6fb3\u95e8", "name_zh_hant": "\u6fb3\u9580", "profit": 880.5843}}]
+[
+{
+    "model": "operation_centers.operationcenter",
+    "pk": 1,
+    "fields": {
+        "name": "Shanghai",
+        "name_en": "Shanghai",
+        "name_zh_hans": "\u4e0a\u6d77",
+        "name_zh_hant": "\u4e0a\u6d77",
+        "profit": 828.3684999999992
+    }
+},
+{
+    "model": "operation_centers.operationcenter",
+    "pk": 2,
+    "fields": {
+        "name": "Beijing",
+        "name_en": "Beijing",
+        "name_zh_hans": "\u5317\u4eac",
+        "name_zh_hant": "\u5317\u4eac",
+        "profit": -542.1405999999998
+    }
+},
+{
+    "model": "operation_centers.operationcenter",
+    "pk": 3,
+    "fields": {
+        "name": "Guangzhou",
+        "name_en": "Guangzhou",
+        "name_zh_hans": "\u5e7f\u5dde",
+        "name_zh_hant": "\u5ee3\u5dde",
+        "profit": 1337.3669000000093
+    }
+},
+{
+    "model": "operation_centers.operationcenter",
+    "pk": 4,
+    "fields": {
+        "name": "Hong Kong",
+        "name_en": "Hong Kong",
+        "name_zh_hans": "\u9999\u6e2f",
+        "name_zh_hant": "\u9999\u6e2f",
+        "profit": 140.2750000000014
+    }
+},
+{
+    "model": "operation_centers.operationcenter",
+    "pk": 5,
+    "fields": {
+        "name": "Macau",
+        "name_en": "Macau",
+        "name_zh_hans": "\u6fb3\u95e8",
+        "name_zh_hant": "\u6fb3\u9580",
+        "profit": 880.5843
+    }
+},
+{
+    "model": "operation_centers.operationcenter",
+    "pk": 6,
+    "fields": {
+        "name": "Taipei",
+        "name_en": "Taipei",
+        "name_zh_hans": "\u53f0\u5317",
+        "name_zh_hant": "\u53f0\u5317",
+        "profit": 0.0
+    }
+},
+{
+    "model": "operation_centers.operationcenter",
+    "pk": 7,
+    "fields": {
+        "name": "Tokyo",
+        "name_en": "Tokyo",
+        "name_zh_hans": "\u4e1c\u4eac",
+        "name_zh_hant": "\u6771\u4eac",
+        "profit": 0.0
+    }
+}
+]
