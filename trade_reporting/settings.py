@@ -262,6 +262,7 @@ INSTALLED_APPS = (
     "phonenumber_field",
     "profits",
     "orders",
+    "django_tables2",
     # "mezzanine.mobile",
 )
 

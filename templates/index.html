@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load render_table from django_tables2 %}
 
 {% block meta_title %}{% trans "Home" %}{% endblock %}
 {% block title %}{% trans "Home" %}{% endblock %}
@@ -15,9 +16,15 @@
 <p>Total User: {{ total_user }}</p>
 <p>Total Orders: {{ total_orders }}</p>
 <p>Total Operation Centers: {{ total_operation_centers }}</p>
+{% endblocktrans %}
 <p>Operation Center Gain/Loss:</p>
+<div>
+    {% render_table operation_centers %}
+</div>
 <p>Top Gainers:</p>
+<div>
+    {% render_table profits %}
+</div>
 <ul>
 </ul>
-{% endblocktrans %}
 {% endblock %}
