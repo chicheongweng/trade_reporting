@@ -18,7 +18,7 @@ from django.conf import settings
 from operation_centers.models import OperationCenter
 from profits.models import Profit
 
-OPERATION_CENTERS_ID = settings.OPERATION_CENTERS_ID
+operation_centers = OperationCenter.objects.all()
 RATIO_OF_USERS_PLACEING_ORDERS = 0.1
 TOTAL_USERS_PLACING_ORDERS = int(User.objects.count()*RATIO_OF_USERS_PLACEING_ORDERS)
 TOTAL_ORDERS_PER_USER = 20
@@ -36,15 +36,17 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         #self.stdout.write("TOTAL_USERS %i" % TOTAL_USERS)
-        for id in OPERATION_CENTERS_ID:
+        for operation_center in operation_centers:
+            id = operation_center.id
             oc = OperationCenter.objects.get(id=id)
             user=get_random_user()
             profile = Profile.objects.get(user=user)
             profile.operation_center = oc
             profile.save()
 
-        for id in OPERATION_CENTERS_ID:
+        for operation_center in operation_centers:
             net = 0.0
+            id = operation_center.id
             profits = Profit.objects.filter(user__profile__operation_center__id=id, symbol='TOTAL')
             for profit in profits:
                 net = net + profit.net
