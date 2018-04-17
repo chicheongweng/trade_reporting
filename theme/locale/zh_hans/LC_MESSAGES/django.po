@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-17 14:46+0800\n"
+"POT-Creation-Date: 2018-04-17 17:14+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,15 +38,15 @@ msgstr ""
 msgid "View Mobile Site"
 msgstr ""
 
-#: templates/index.html:4 templates/index.html:5 templates/index.html:8
+#: templates/index.html:5 templates/index.html:6 templates/index.html:9
 msgid "Home"
 msgstr ""
 
-#: templates/index.html:12
+#: templates/index.html:13
 msgid "Current time: "
 msgstr ""
 
-#: templates/index.html:13
+#: templates/index.html:14
 #, python-format
 msgid ""
 "\n"
@@ -54,20 +54,12 @@ msgid ""
 "<p>Total User: %(total_user)s</p>\n"
 "<p>Total Orders: %(total_orders)s</p>\n"
 "<p>Total Operation Centers: %(total_operation_centers)s</p>\n"
-"<p>Operation Center Gain/Loss:</p>\n"
-"<p>Top Gainers:</p>\n"
-"<ul>\n"
-"</ul>\n"
 msgstr ""
 "\n"
 "<h3>MetaTrader-X 交易报告系统</h3>\n"
 "<p>Total User: %(total_user)s</p>\n"
 "<p>Total Orders: %(total_orders)s</p>\n"
 "<p>Total Operation Centers: %(total_operation_centers)s</p>\n"
-"<p>Operation Center Gain/Loss:</p>\n"
-"<p>Top Gainers:</p>\n"
-"<ul>\n"
-"</ul>\n"
 
 #: trade_reporting/settings.py:54
 msgid "Left-hand tree"
