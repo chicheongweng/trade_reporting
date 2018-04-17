@@ -6,6 +6,9 @@ from user_profile.models import Profile
 from operation_centers.models import OperationCenter
 from orders.models import Order
 from profits.models import Profit
+from profits.tables import ProfitTable
+from operation_centers.tables import OperationCenterTable
+from django_tables2 import RequestConfig
 
 class IndexView(TemplateView):
     template_name = "index.html"
@@ -15,6 +18,10 @@ class IndexView(TemplateView):
         context['total_user'] = User.objects.count()
         context['total_orders'] = Order.objects.count()
         context['total_operation_centers'] = OperationCenter.objects.count()
-        context['operation_centers'] = OperationCenter.objects.all()
-        context['profits'] = Profit.objects.all()
+
+        t = OperationCenterTable(OperationCenter.objects.all())
+        context['operation_centers'] = RequestConfig(self.request).configure(t)
+
+        t = ProfitTable(Profit.objects.all())
+        context['profits'] = RequestConfig(self.request).configure(t)
         return context
