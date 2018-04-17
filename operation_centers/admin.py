@@ -4,7 +4,7 @@ from operation_centers.models import OperationCenter
 # Register your models here.
 
 class OperationCenterAdmin(admin.ModelAdmin):
-    list_display = ['name', 'users', 'net']
+    list_display = ['name', 'users', 'profit']
     search_fields = ['user__username']
 
     def users(self, obj):

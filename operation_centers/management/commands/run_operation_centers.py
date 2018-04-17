@@ -49,5 +49,5 @@ class Command(BaseCommand):
             for profit in profits:
                 net = net + profit.net
             oc = OperationCenter.objects.get(id=id)
-            oc.net = net
+            oc.profit = net
             oc.save()
