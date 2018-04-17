@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load render_table from django_tables2 %}
+{% load humanize %}
 
 {% block meta_title %}{% trans "Home" %}{% endblock %}
 {% block title %}{% trans "Home" %}{% endblock %}
@@ -11,17 +12,15 @@
 
 {% block main %}
 <h3>{% trans "Current time: " %}{% now "jS F Y H:i" %}</h3>
-{% blocktrans %}
-<h3>MetaTrader-X Trade Reporting System</h3>
-<p>Total User: {{ total_user }}</p>
-<p>Total Orders: {{ total_orders }}</p>
-<p>Total Operation Centers: {{ total_operation_centers }}</p>
-{% endblocktrans %}
-<p>Operation Center Gain/Loss:</p>
+<h3>{% trans "MetaTrader-X Trade Reporting System" %}</h3>
+<p>{% trans "Total User:" %} {{ total_user|intcomma }}</p>
+<p>{% trans "Total Orders:" %} {{ total_orders|intcomma }}</p>
+<p>{% trans "Total Operation Centers:" %} {{ total_operation_centers|intcomma }}</p>
+<p>{% trans "Operation Center Gain/Loss:" %}</p>
 <div>
     {% render_table operation_centers %}
 </div>
-<p>Top Gainers:</p>
+<p>{% trans "Top Gainers" %}</p>
 <div>
     {% render_table profits %}
 </div>
