@@ -40,7 +40,7 @@ class Command(BaseCommand):
                         net = net + order.quantity*order.price
                     try:
                         profit = Profit.objects.get(user=user, symbol=symbol)
-                        profit.net = net
+                        profit.net = round(net, 2)
                     except:
                         profit = Profit.objects.create(net=net, user=user, symbol=symbol)
                     profit.save()
@@ -52,7 +52,7 @@ class Command(BaseCommand):
                     net = net + profit.net
                 try:
                     p = Profit.objects.get(user=user, symbol='TOTAL')
-                    p.net = net
+                    p.net = round(net, 2)
                 except:
                     p = Profit.objects.create(net=net, user=user, symbol='TOTAL')
                 p.save()
