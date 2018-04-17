@@ -20,8 +20,8 @@ class IndexView(TemplateView):
         context['total_operation_centers'] = OperationCenter.objects.count()
 
         t = OperationCenterTable(OperationCenter.objects.all())
-        context['operation_centers'] = RequestConfig(self.request).configure(t)
+        context['operation_centers'] = RequestConfig(self.request, paginate={'per_page': 10}).configure(t)
 
         t = ProfitTable(Profit.objects.all())
-        context['profits'] = RequestConfig(self.request).configure(t)
+        context['profits'] = RequestConfig(self.request, paginate={'per_page': 10}).configure(t)
         return context
