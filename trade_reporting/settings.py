@@ -135,7 +135,7 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = True
+USE_I18N = False
 
 AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
 
@@ -354,3 +354,5 @@ ACCOUNTS_PROFILE_MODEL = "user_profile.Profile"
 SYMBOLS = ['GLD', 'SLV', 'EURUSD', 'RMBUSD', 'OIL']
 
 OPERATION_CENTERS_ID = [1, 2, 3, 4, 5]
+
+LOCALE_PATHS = [os.path.join(PROJECT_ROOT, "theme", "locale"),]
