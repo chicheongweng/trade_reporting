@@ -19,8 +19,10 @@ from operation_centers.models import OperationCenter
 from profits.models import Profit
 
 operation_centers = OperationCenter.objects.all()
-RATIO_OF_USERS_PLACEING_ORDERS = 0.1
+RATIO_OF_USERS_PLACEING_ORDERS = 0.2
 TOTAL_USERS_PLACING_ORDERS = int(User.objects.count()*RATIO_OF_USERS_PLACEING_ORDERS)
+RATIO_OF_TOTAL_USERS_WITH_OPERATION_CENTERS = 0.1
+TOTAL_USERS_WITH_OPERATION_CENTERS = int(User.objects.count()*RATIO_OF_TOTAL_USERS_WITH_OPERATION_CENTERS)
 TOTAL_ORDERS_PER_USER = 20
 ORDER_QUANTITY_STD = 10
 
@@ -30,6 +32,12 @@ def get_random_user():
     random_user = User.objects.get(pk = random_index)
     return random_user
 
+def get_random_oc():
+    number_of_records = OperationCenter.objects.count()
+    random_index = int(random.random()*number_of_records)+1
+    random_oc = OperationCenter.objects.get(pk = random_index)
+    return random_oc
+
 class Command(BaseCommand):
 
     help = 'calculate profits for all users'
@@ -37,11 +45,13 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         #self.stdout.write("TOTAL_USERS %i" % TOTAL_USERS)
         for operation_center in operation_centers:
-            id = operation_center.id
-            oc = OperationCenter.objects.get(id=id)
-            user=get_random_user()
+            count = User.objects.all().count()
+            slice = random.random() * (count - TOTAL_USERS_WITH_OPERATION_CENTERS)
+            users = User.objects.all()[slice: slice+10]
+
+        for user in users:
             profile = Profile.objects.get(user=user)
-            profile.operation_center = oc
+            profile.operation_center = get_random_oc()
             profile.save()
 
         for operation_center in operation_centers:
