@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-18 13:04+0800\n"
+"POT-Creation-Date: 2018-04-18 15:04+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,9 +38,17 @@ msgstr "數量"
 msgid "price"
 msgstr "價格"
 
-#: orders/models.py:19
+#: orders/models.py:19 profits/models.py:11
 msgid "symbol"
 msgstr "符號"
+
+#: profits/models.py:9
+msgid "net"
+msgstr "利潤"
+
+#: profits/models.py:10
+msgid "user"
+msgstr "用戶"
 
 #: templates/accounts/account_login.html:7
 msgid ""
