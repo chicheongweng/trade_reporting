@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-18 16:01+0800\n"
+"POT-Creation-Date: 2018-04-18 20:45+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,15 +20,15 @@ msgstr ""
 
 #: operation_centers/models.py:9
 msgid "name"
-msgstr "中心名稱"
+msgstr "名字"
 
 #: operation_centers/models.py:10 profits/models.py:14 profits/models.py:15
 msgid "profit"
-msgstr "盈利"
+msgstr "獲利"
 
 #: operation_centers/models.py:14
 msgid "total users"
-msgstr "用戶總算"
+msgstr "用戶總數"
 
 #: operation_centers/models.py:20
 msgid "operation center"
@@ -143,7 +143,7 @@ msgstr ""
 
 #: templates/index.html:6 templates/index.html:7
 msgid "MetaTrader-X Trade Reporting System"
-msgstr "MetaTrader-X 交易報價係統"
+msgstr "MetaTrader-X 交易報告係統"
 
 #: templates/index.html:11
 msgid "Home"
@@ -155,7 +155,7 @@ msgstr "用戶總數"
 
 #: templates/index.html:18
 msgid "Total Orders"
-msgstr "交易宗數"
+msgstr "交易總數"
 
 #: templates/index.html:19
 msgid "Total Operation Centers"
@@ -168,23 +168,3 @@ msgstr "營運中心獲利"
 #: templates/index.html:24
 msgid "Users Gain/Loss"
 msgstr "用戶獲利"
-
-#: trade_reporting/settings.py:54
-msgid "Left-hand tree"
-msgstr ""
-
-#: trade_reporting/settings.py:55
-msgid "Footer"
-msgstr ""
-
-#: trade_reporting/settings.py:121
-msgid "English"
-msgstr ""
-
-#: trade_reporting/settings.py:122
-msgid "Simplified Chinese"
-msgstr ""
-
-#: trade_reporting/settings.py:123
-msgid "Traditional Chinese"
-msgstr ""
