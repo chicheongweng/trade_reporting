@@ -85,13 +85,13 @@
 {% endnevercache %}
 
 <h1>{% block title %}{% endblock %}</h1>
-
+<!--
 <ul class="breadcrumb">
 {% spaceless %}
 {% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}
 {% endspaceless %}
 </ul>
-
+-->
 </div>
 
 <div class="container">
@@ -132,6 +132,8 @@
 
 <div class="row">
 <p class="site-info text-center">
+    {% trans "Copyright 2017, 2018" %}
+    <!--
     {% trans "Powered by" %}
     <a href="http://mezzanine.jupo.org">Mezzanine</a>{% ifinstalled cartridge.shop %},
     <a href="http://cartridge.jupo.org">Cartridge</a>{% endifinstalled %}
@@ -143,6 +145,7 @@
     <span class="separator">|</span>
     <a href="{% url "set_device" "mobile" %}?next={{ request.path }}">{% trans "View Mobile Site" %}</a>
     {% endifinstalled %}
+    -->
 </p>
 </div>
 </div>

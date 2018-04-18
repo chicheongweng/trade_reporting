@@ -11,8 +11,7 @@
 {% endblock %}
 
 {% block main %}
-<h3>{% trans "Current time: " %}{% now "jS F Y H:i" %}</h3>
-<h3>{% trans "MetaTrader-X Trade Reporting System" %}</h3>
+<h3>{% trans "MetaTrader-X Trade Reporting System" %} ({% now "jS F Y H:i" %})</h3>
 <p>{% trans "Total User:" %} {{ total_user|intcomma }}</p>
 <p>{% trans "Total Orders:" %} {{ total_orders|intcomma }}</p>
 <p>{% trans "Total Operation Centers:" %} {{ total_operation_centers|intcomma }}</p>
