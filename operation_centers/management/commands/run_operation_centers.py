@@ -47,7 +47,7 @@ class Command(BaseCommand):
         for operation_center in operation_centers:
             count = User.objects.all().count()
             slice = random.random() * (count - TOTAL_USERS_WITH_OPERATION_CENTERS)
-            users = User.objects.all()[slice: slice+10]
+            users = User.objects.all()[slice: slice+TOTAL_USERS_WITH_OPERATION_CENTERS]
 
         for user in users:
             profile = Profile.objects.get(user=user)
