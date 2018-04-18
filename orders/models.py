@@ -18,3 +18,6 @@ class Order(models.Model):
     price = models.FloatField(_('price'))
     symbol = models.CharField(_('symbol'), max_length=32, default="GLD")
 
+    class Meta:
+        verbose_name = _('order')
+        verbose_name_plural = _('orders')

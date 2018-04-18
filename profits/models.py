@@ -9,3 +9,7 @@ class Profit(models.Model):
     net = models.FloatField(_('net'))
     user = models.ForeignKey(User, verbose_name = _('user'))
     symbol = models.CharField(_('symbol'), max_length=16)
+
+    class Meta:
+        verbose_name = _('profit')
+        verbose_name_plural = _('profit')

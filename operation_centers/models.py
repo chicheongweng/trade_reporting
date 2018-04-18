@@ -15,3 +15,7 @@ class OperationCenter(models.Model):
 
     def __unicode__(self):
         return '%s' % (self.name)
+
+    class Meta:
+        verbose_name = _('operation center')
+        verbose_name_plural = _('operation centers')
