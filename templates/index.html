@@ -3,15 +3,17 @@
 {% load render_table from django_tables2 %}
 {% load humanize %}
 
-{% block meta_title %}{% trans "Home" %}{% endblock %}
-{% block title %}{% trans "Home" %}{% endblock %}
+{% block meta_title %}{% trans "MetaTrader-X Trade Reporting System" %}{% endblock %}
+{% block title %}<p style="text-align:center">{% trans "MetaTrader-X Trade Reporting System" %}</p>{% endblock %}
 
+<!--
 {% block breadcrumb_menu %}
 <li class="active">{% trans "Home" %}</li>
 {% endblock %}
+-->
 
 {% block main %}
-<h3>{% trans "MetaTrader-X Trade Reporting System" %} ({% now "jS F Y H:i" %})</h3>
+<h3>{% now "jS F Y H:i" %}</h3>
 <p>{% trans "Total User:" %} {{ total_user|intcomma }}</p>
 <p>{% trans "Total Orders:" %} {{ total_orders|intcomma }}</p>
 <p>{% trans "Total Operation Centers:" %} {{ total_operation_centers|intcomma }}</p>
