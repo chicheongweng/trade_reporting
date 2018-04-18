@@ -8,7 +8,9 @@ class ColumnWithThousandsSeparator(tables.Column):
 
 class OperationCenterTable(tables.Table):
     profit = ColumnWithThousandsSeparator()
+    total_users = ColumnWithThousandsSeparator(orderable=False)
+
     class Meta:
         model = OperationCenter
-        fields = ['name', 'profit']
-        sequence = ['name', 'profit']
+        fields = ['name', 'total_users', 'profit']
+        sequence = ['name', 'total_users', 'profit']

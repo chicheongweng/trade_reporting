@@ -14,10 +14,10 @@
 
 {% block main %}
 <h3>{% now "jS F Y H:i" %}</h3>
-<p>{% trans "Total Users:" %} {{ total_user|intcomma }}</p>
-<p>{% trans "Total Orders:" %} {{ total_orders|intcomma }}</p>
-<p>{% trans "Total Operation Centers:" %} {{ total_operation_centers|intcomma }}</p>
-<p>{% trans "Operation Centers Gain/Loss:" %}</p>
+<p>{% trans "Total Users" %}: {{ total_user|intcomma }}</p>
+<p>{% trans "Total Orders" %}: {{ total_orders|intcomma }}</p>
+<p>{% trans "Total Operation Centers" %}: {{ total_operation_centers|intcomma }}</p>
+<p>{% trans "Operation Centers Gain/Loss" %}:</p>
 <div>
     {% render_table operation_centers %}
 </div>

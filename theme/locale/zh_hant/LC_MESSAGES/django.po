@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-17 17:14+0800\n"
+"POT-Creation-Date: 2018-04-18 13:04+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,48 +18,128 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: operation_centers/models.py:9
+msgid "name"
+msgstr "名字"
+
+#: operation_centers/models.py:10
+msgid "profit"
+msgstr "利潤"
+
+#: orders/models.py:16
+msgid "order type"
+msgstr "交易類型"
+
+#: orders/models.py:17
+msgid "quantity"
+msgstr "數量"
+
+#: orders/models.py:18
+msgid "price"
+msgstr "價格"
+
+#: orders/models.py:19
+msgid "symbol"
+msgstr "符號"
+
+#: templates/accounts/account_login.html:7
+msgid ""
+"You're already logged in. If you'd like to log in as a different user, "
+"you'll need to log out first."
+msgstr ""
+
+#: templates/accounts/account_login.html:12
+#, python-format
+msgid ""
+"If you don't have an account you can <a href=\"%(signup_url)s?next=%(next)s"
+"\">sign up</a> for one now."
+msgstr ""
+
+#: templates/accounts/account_login.html:15
+#, python-format
+msgid ""
+"<p>You can also <a href=\"%(password_reset_url)s?next=%(profile_update_url)s"
+"\">reset your password</a> if you've forgotten it.</p>"
+msgstr ""
+
+#: templates/accounts/includes/user_panel.html:5
+msgid "Logged in as: "
+msgstr ""
+
+#: templates/accounts/includes/user_panel.html:11
+msgid "Update profile"
+msgstr ""
+
+#: templates/accounts/includes/user_panel.html:17
+#: templates/accounts/includes/user_panel_nav.html:11
+msgid "Log out"
+msgstr ""
+
+#: templates/accounts/includes/user_panel.html:20
+#: templates/accounts/includes/user_panel_nav.html:14
+msgid "Log in"
+msgstr ""
+
+#: templates/accounts/includes/user_panel.html:21
+msgid "or"
+msgstr ""
+
+#: templates/accounts/includes/user_panel.html:23
+#: templates/accounts/includes/user_panel_nav.html:16
+msgid "Sign up"
+msgstr ""
+
 #: templates/base.html:55
 msgid "Toggle Navigation"
 msgstr ""
 
-#: templates/base.html:135
+#: templates/base.html:137
+msgid "Copyright 2017, 2018 by chicheongweng@gmail.com"
+msgstr ""
+
+#: templates/base.html:139
 msgid "Powered by"
 msgstr ""
 
-#: templates/base.html:138
+#: templates/base.html:142
 msgid "and"
 msgstr ""
 
-#: templates/base.html:141
+#: templates/base.html:145
 msgid "Theme by"
 msgstr ""
 
-#: templates/base.html:144
+#: templates/base.html:148
 msgid "View Mobile Site"
 msgstr ""
 
-#: templates/index.html:5 templates/index.html:6 templates/index.html:9
+#: templates/index.html:6 templates/index.html:7
+msgid "MetaTrader-X Trade Reporting System"
+msgstr "MetaTrader-X 交易報告系統"
+
+#: templates/index.html:11
 msgid "Home"
 msgstr ""
 
-#: templates/index.html:13
-msgid "Current time: "
-msgstr ""
+#: templates/index.html:17
+msgid "Total Users"
+msgstr "用戶總數"
 
-#: templates/index.html:14
-#, python-format
-msgid ""
-"\n"
-"<h3>MetaTrader-X Trade Reporting System</h3>\n"
-"<p>Total User: %(total_user)s</p>\n"
-"<p>Total Orders: %(total_orders)s</p>\n"
-"<p>Total Operation Centers: %(total_operation_centers)s</p>\n"
-msgstr ""
-"\n"
-"<h3>MetaTrader-X 交易報告系統</h3>\n"
-"<p>Total User: %(total_user)s</p>\n"
-"<p>Total Orders: %(total_orders)s</p>\n"
-"<p>Total Operation Centers: %(total_operation_centers)s</p>\n"
+#: templates/index.html:18
+msgid "Total Orders"
+msgstr "交易總數"
+
+#: templates/index.html:19
+msgid "Total Operation Centers"
+msgstr "營運中心總數"
+
+#: templates/index.html:20
+msgid "Operation Centers Gain/Loss"
+msgstr "營運中心 贏/輸"
+
+#: templates/index.html:24
+msgid "Users Gain/Loss:"
+msgstr "用戶 贏/輸"
 
 #: trade_reporting/settings.py:54
 msgid "Left-hand tree"
