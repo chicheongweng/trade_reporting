@@ -23,7 +23,7 @@ ipaddress==1.0.19
 isort==4.3.4
 lazy-object-proxy==1.3.1
 mccabe==0.6.1
-Mezzanine==4.2.3
+git+https://github.com/stephenmcd/mezzanine.git@32dc38778d296f508a23b729de04a02075994df5
 oauthlib==2.0.7
 phonenumberslite==8.9.3
 Pillow==5.1.0
