@@ -1,6 +1,8 @@
 *.pyc
 *.pyo
 *.db
+*access.log
+*error.log
 .DS_Store
 .coverage
 /static
