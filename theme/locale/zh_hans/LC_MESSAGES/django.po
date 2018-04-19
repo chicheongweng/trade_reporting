@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-19 14:15+0800\n"
+"POT-Creation-Date: 2018-04-19 16:39+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -119,7 +119,7 @@ msgstr ""
 
 #: templates/auth/user_detail.html:6 templates/auth/user_detail.html:7
 msgid "User Detail"
-msgstr "用戶詳細資料"
+msgstr "用戶詳情"
 
 #: templates/auth/user_detail.html:12
 msgid "User Name"
@@ -131,7 +131,7 @@ msgstr "用戶電郵"
 
 #: templates/auth/user_detail.html:14
 msgid "User Date of Birth"
-msgstr "用戶生日"
+msgstr "用戶齣生日期"
 
 #: templates/auth/user_detail.html:15
 msgid "User Phone Number"
@@ -139,7 +139,7 @@ msgstr "用戶電話號碼"
 
 #: templates/auth/user_detail.html:18
 msgid "User Profits"
-msgstr "用戶利潤"
+msgstr "用戶獲利"
 
 #: templates/auth/user_detail.html:22
 msgid "User Orders"
@@ -191,11 +191,11 @@ msgstr "營運中心總數"
 
 #: templates/index.html:20
 msgid "Operation Centers Gain/Loss"
-msgstr "營運中心獲利"
+msgstr "營運中心 贏/輸"
 
 #: templates/index.html:24
 msgid "Users Gain/Loss"
-msgstr "用戶獲利"
+msgstr "用戶 贏/數"
 
 #: trade_reporting/settings.py:54
 msgid "Left-hand tree"
