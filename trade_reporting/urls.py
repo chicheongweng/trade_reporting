@@ -8,7 +8,7 @@ from django.views.generic import TemplateView
 
 from mezzanine.core.views import direct_to_template
 from mezzanine.conf import settings
-from views import IndexView
+from views import IndexView, UserDetailView
 
 admin.autodiscover()
 
@@ -40,7 +40,8 @@ urlpatterns += [
 
     #url("^$", direct_to_template, {"template": "index.html"}, name="home"),
     url("^$", IndexView.as_view(), {"template": "index.html"}, name="home" ),
-    
+    url(r'user/(?P<pk>\d+)/$', UserDetailView.as_view(), name='user_detail'),
+
     # HOMEPAGE AS AN EDITABLE PAGE IN THE PAGE TREE
     # ---------------------------------------------
     # This pattern gives us a normal ``Page`` object, so that your

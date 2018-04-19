@@ -1,6 +1,7 @@
 from profits.models import Profit
 import django_tables2 as tables
 from django.contrib.humanize.templatetags.humanize import intcomma
+from django_tables2.utils import A
 
 class ColumnWithThousandsSeparator(tables.Column):
     def render(self,value):
@@ -8,6 +9,7 @@ class ColumnWithThousandsSeparator(tables.Column):
 
 class ProfitTable(tables.Table):
     net = ColumnWithThousandsSeparator()
+    user = tables.LinkColumn('user_detail', args=[A('pk')])
     """
     def __init__(self, *args, **kwargs):
         super(ProfitTable, self).__init__(*args, **kwargs)

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load render_table from django_tables2 %}
+{% load humanize %}
+
+{% block meta_title %}{% trans "User Detail" %}{% endblock %}
+{% block title %}<p style="text-align:center">{% trans "User Detail" %}</p>{% endblock %}
+
+
+{% block main %}
+<ul>
+    <li>User Id: {{ user.id }}</li>
+    <li>User Name: {{ user.first_name }} {{ user.last_name }}</li>
+    <li>User Email: {{ user.email }} </li>
+    <li>User Date of Birth: {{ user.profile.date_of_birth }}</li>
+    <li>User Phone Number: {{ user.profile.phone_number}} </li>
+</ul>
+<div>
+        {% render_table profits %}
+</div>
+<div>
+        {% render_table orders %}
+</div>
+{% endblock %}
