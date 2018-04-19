@@ -9,18 +9,17 @@
 
 {% block main %}
 <ul>
-    <li>User Id: {{ user.id }}</li>
-    <li>User Name: {{ user.first_name }} {{ user.last_name }}</li>
-    <li>User Email: {{ user.email }} </li>
-    <li>User Date of Birth: {{ user.profile.date_of_birth }}</li>
-    <li>User Phone Number: {{ user.profile.phone_number}} </li>
+    <li>{% trans "User Name" %}: {{ user.first_name }} {{ user.last_name }}</li>
+    <li>{% trans "User Email" %}: {{ user.email }} </li>
+    <li>{% trans "User Date of Birth" %}: {{ user.profile.date_of_birth }}</li>
+    <li>{% trans "User Phone Number" %}: {{ user.profile.phone_number}} </li>
 </ul>
 <div>
-    <h3 style="text-align:center">User Profits</h3>
+    <h3 style="text-align:center">{% trans "User Profits" %}</h3>
         {% render_table profits %}
 </div>
 <div>
-    <h3 style="text-align:center">User Orders</h3>
+    <h3 style="text-align:center">{% trans "User Orders" %}</h3>
         {% render_table orders %}
 </div>
 {% endblock %}
