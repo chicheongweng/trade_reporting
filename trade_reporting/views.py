@@ -11,6 +11,7 @@ from operation_centers.tables import OperationCenterTable
 from django_tables2 import RequestConfig
 from django.views.generic.detail import DetailView
 from profits.tables import ProfitTable
+from orders.tables import OrderTable
 
 class IndexView(TemplateView):
     template_name = "index.html"
@@ -21,11 +22,11 @@ class IndexView(TemplateView):
         context['total_orders'] = Order.objects.count()
         context['total_operation_centers'] = OperationCenter.objects.count()
 
-        t = OperationCenterTable(OperationCenter.objects.all())
-        context['operation_centers'] = RequestConfig(self.request, paginate={'per_page': 10}).configure(t)
+        oc_table = OperationCenterTable(OperationCenter.objects.all())
+        context['operation_centers'] = RequestConfig(self.request, paginate={'per_page': 10}).configure(oc_table)
 
-        t = ProfitTable(Profit.objects.all())
-        context['profits'] = RequestConfig(self.request, paginate={'per_page': 10}).configure(t)
+        profits_table = ProfitTable(Profit.objects.all())
+        context['profits'] = RequestConfig(self.request, paginate={'per_page': 10}).configure(profits_table)
         return context
 
 class UserDetailView(DetailView):
@@ -35,8 +36,12 @@ class UserDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(UserDetailView, self).get_context_data(**kwargs)
-        context['profits'] = ProfitTable(Profit.objects.filter(user=self.get_object()))
-        context['orders'] = Order.objects.filter(user=self.get_object())
+        
+        profits_table = ProfitTable(Profit.objects.filter(user=self.get_object()))
+        context['profits'] = RequestConfig(self.request, paginate={'per_page: 10'}).configure(profits_table)
+        
+        orders_table = ProfitTable(Profit.objects.all())
+        context['orders'] = RequestConfig(self.request, paginate={'per_page': 10}).configure(orders_table)
         return context
 
     
