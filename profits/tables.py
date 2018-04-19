@@ -9,14 +9,8 @@ class ColumnWithThousandsSeparator(tables.Column):
 
 class ProfitTable(tables.Table):
     net = ColumnWithThousandsSeparator()
-    user = tables.LinkColumn('user_detail', args=[A('pk')])
-    """
-    def __init__(self, *args, **kwargs):
-        super(ProfitTable, self).__init__(*args, **kwargs)
-        for column in self.base_columns:
-                self.base_columns[column].verbose_name = \
-                    self.Meta.model._meta.get_field(column).verbose_name
-    """
+    user = tables.LinkColumn('user_detail', args=[A('user.pk')], order_by=('user.username'))
+    
     class Meta:
         model = Profit
         fields = ['user', 'symbol', 'net']

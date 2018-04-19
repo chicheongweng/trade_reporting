@@ -10,6 +10,7 @@ from profits.tables import ProfitTable
 from operation_centers.tables import OperationCenterTable
 from django_tables2 import RequestConfig
 from django.views.generic.detail import DetailView
+from profits.tables import ProfitTable
 
 class IndexView(TemplateView):
     template_name = "index.html"
@@ -34,7 +35,7 @@ class UserDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(UserDetailView, self).get_context_data(**kwargs)
-        context['profits'] = Profit.objects.filter(user=self.get_object())
+        context['profits'] = ProfitTable(Profit.objects.filter(user=self.get_object()))
         context['orders'] = Order.objects.filter(user=self.get_object())
         return context
 

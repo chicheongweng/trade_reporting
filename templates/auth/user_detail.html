@@ -16,9 +16,11 @@
     <li>User Phone Number: {{ user.profile.phone_number}} </li>
 </ul>
 <div>
+    <h3 style="text-align:center">User Profits</h3>
         {% render_table profits %}
 </div>
 <div>
+    <h3 style="text-align:center">User Orders</h3>
         {% render_table orders %}
 </div>
 {% endblock %}
