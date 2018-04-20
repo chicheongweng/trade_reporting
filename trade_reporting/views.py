@@ -40,7 +40,7 @@ class UserDetailView(DetailView):
         profits_table = ProfitTable(Profit.objects.filter(user=self.get_object()))
         context['profits'] = RequestConfig(self.request, paginate={'per_page: 10'}).configure(profits_table)
         
-        orders_table = ProfitTable(Profit.objects.all())
+        orders_table = OrderTable(Order.objects.filter(user=self.get_object()))
         context['orders'] = RequestConfig(self.request, paginate={'per_page': 10}).configure(orders_table)
         return context
 

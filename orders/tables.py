@@ -8,7 +8,7 @@ class ColumnWithThousandsSeparator(tables.Column):
         return intcomma(value)
 
 class OrderTable(tables.Table):
-    net = ColumnWithThousandsSeparator()
+    price = ColumnWithThousandsSeparator()
     
     class Meta:
         model = Order
