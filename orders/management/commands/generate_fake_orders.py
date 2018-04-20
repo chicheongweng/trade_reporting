@@ -13,7 +13,7 @@ from user_profile.models import Profile
 from orders.models import Order
 from django.utils import timezone
 
-RATIO_OF_USERS_PLACEING_ORDERS = 0.5
+RATIO_OF_USERS_PLACEING_ORDERS = 0.1
 TOTAL_USERS_PLACING_ORDERS = int(User.objects.count()*RATIO_OF_USERS_PLACEING_ORDERS)
 TOTAL_ORDERS_PER_USER = 20
 ORDER_QUANTITY_STD = 10

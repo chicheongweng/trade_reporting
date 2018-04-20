@@ -36,7 +36,7 @@ class Command(BaseCommand):
     help = 'generate 10K Jobseeker profiles for Addis Ababa'
 
     def handle(self, *args, **options):
-        for i in range(50):
+        for i in range(10000):
 
             first_name = random_first_name()
             last_name = random_last_name()
