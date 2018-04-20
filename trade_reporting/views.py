@@ -37,7 +37,7 @@ class UserDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(UserDetailView, self).get_context_data(**kwargs)
         
-        profits_table = ProfitTable(Profit.objects.filter(user=self.get_object()))
+        profits_table = ProfitTable(Profit.objects.filter(user=self.get_object()).exclude(symbol='TOTAL'))
         context['profits'] = RequestConfig(self.request, paginate={'per_page: 10'}).configure(profits_table)
         
         orders_table = OrderTable(Order.objects.filter(user=self.get_object()))
