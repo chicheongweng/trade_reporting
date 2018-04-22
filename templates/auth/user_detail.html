@@ -2,6 +2,7 @@
 {% load i18n %}
 {% load render_table from django_tables2 %}
 {% load humanize %}
+{% load export_url from django_tables2 %}
 
 {% block meta_title %}{% trans "User Detail" %}{% endblock %}
 {% block title %}<p style="text-align:center">{% trans "User Detail" %}</p>{% endblock %}
@@ -21,5 +22,12 @@
 <div>
     <h3 style="text-align:center">{% trans "User Orders" %}</h3>
         {% render_table orders %}
+</div>
+<div>
+    <p style="text-align:center">
+        <a href="{% export_url 'csv' %}">
+            Download user orders  <code>.{{ 'csv' }}</code>
+        </a>
+    </p>
 </div>
 {% endblock %}
