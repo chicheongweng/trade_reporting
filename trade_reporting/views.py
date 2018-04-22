@@ -41,7 +41,7 @@ class UserDetailView(DetailView):
         export_format = self.request.GET.get('_export', None)
         if TableExport.is_valid_format(export_format):
             exporter = TableExport(export_format, context['orders_table'])
-            return exporter.response('table.{}'.format(export_format))
+            return exporter.response('user_orders.{}'.format(export_format))
         return view
 
     def get_context_data(self, **kwargs):
