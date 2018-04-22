@@ -45,7 +45,7 @@ class Command(BaseCommand):
                         profit = Profit.objects.create(net=net, user=user, symbol=symbol)
                     profit.save()
         for user in all_users:
-            profits = Profit.objects.filter(user=user)
+            profits = Profit.objects.filter(user=user).exclude(symbol='TOTAL')
             if profits:
                 net = 0.0
                 for profit in profits:
