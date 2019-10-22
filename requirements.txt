@@ -1,7 +1,7 @@
 Babel==2.5.3
 Django==1.11
 Faker==0.8.13
-Pillow==5.1.0
+Pillow==6.2.0
 PyYAML==3.12
 astroid==1.6.3
 backports.functools-lru-cache==1.5
